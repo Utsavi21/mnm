@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For mnm 💝</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial Rounded MT Bold', 'Segoe UI', Tahoma, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ff6b9d, #ff8fab, #ffafcc);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 25px;
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            position: relative;
+            margin: 20px;
+            border: 8px solid #ff4081;
+        }
+        
+        h1 {
+            color: #d63384;
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .to-mnm {
+            color: #ff4081;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .question {
+            font-size: 2.2rem;
+            color: #ff0066;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            padding: 12px 25px;
+            font-size: 1.3rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+            min-width: 120px;
+        }
+        
+        #yesBtn {
+            background: linear-gradient(to right, #ff4081, #ff79a9);
+            color: white;
+        }
+        
+        #yesBtn:hover {
+            background: linear-gradient(to right, #e91e63, #ff4081);
+            transform: scale(1.05);
+        }
+        
+        #noBtn {
+            background: linear-gradient(to right, #36d1dc, #5b86e5);
+            color: white;
+        }
+        
+        #noBtn:hover {
+            background: linear-gradient(to right, #2193b0, #6dd5ed);
+            transform: scale(1.05);
+        }
+        
+        .message {
+            display: none;
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
+            animation: fadeIn 1s ease;
+            border: 5px solid #ff4081;
+        }
+        
+        .message h2 {
+            color: #d63384;
+            margin-bottom: 15px;
+            font-size: 2.2rem;
+        }
+        
+        .message p {
+            font-size: 1.4rem;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .personal-message {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            font-size: 1.2rem;
+            color: #ff0066;
+            font-style: italic;
+        }
+        
+        .heart-balloon {
+            position: absolute;
+            font-size: 2.8rem;
+            color: #ff4081;
+            filter: drop-shadow(0 0 10px rgba(255, 64, 129, 0.7));
+            z-index: 5;
+            animation: float 25s infinite linear;
+            cursor: pointer;
+            text-shadow: 0 0 20px rgba(255, 64, 129, 0.8);
+        }
+        
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: 1.3rem;
+            color: #ff4081;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+        
+        .floating-heart {
+            position: absolute;
+            font-size: 2rem;
+            color: #ff4081;
+            z-index: 2;
+            opacity: 0.9;
+            animation: floatAround 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            25% { transform: translate(80px, 80px) rotate(90deg) scale(1.1); }
+            50% { transform: translate(150px, 40px) rotate(180deg) scale(1); }
+            75% { transform: translate(40px, 120px) rotate(270deg) scale(1.1); }
+            100% { transform: translate(0, 0) rotate(360deg) scale(1); }
+        }
+        
+        @keyframes floatAround {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(120px, 70px) rotate(120deg); }
+            66% { transform: translate(70px, 120px) rotate(240deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        
+        .pulse {
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .question { font-size: 1.8rem; }
+            button { padding: 10px 20px; font-size: 1.2rem; min-width: 100px; }
+            .heart-balloon { font-size: 2.2rem; }
+            .container { padding: 20px; }
+        }
+        
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8rem; }
+            .question { font-size: 1.5rem; }
+            button { padding: 8px 16px; font-size: 1.1rem; min-width: 90px; }
+            .buttons { gap: 15px; }
+            .to-mnm { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts-container" id="heartsContainer"></div>
+    
+    <!-- Floating hearts around the screen -->
+    <div class="floating-heart" style="top: 10%; left: 15%;">💗</div>
+    <div class="floating-heart" style="top: 20%; right: 10%;">💖</div>
+    <div class="floating-heart" style="bottom: 30%; left: 5%;">💝</div>
+    <div class="floating-heart" style="bottom: 15%; right: 20%;">💓</div>
+    
+    <div class="container pulse">
+        <h1>Happy Valentine's Day!</h1>
+        <div class="to-mnm">To my dear mnm 💕</div>
+        <div class="question">Will you be my Valentine?</div>
+        
+        <div class="buttons">
+            <button id="yesBtn">Yes! 💖</button>
+            <button id="noBtn">No 😢</button>
+        </div>
+        
+        <div class="message" id="message">
+            <h2>Yay! I knew you'd say YES! 🎉</h2>
+            <p>Thank you for being my Valentine, mnm! 💝</p>
+            
+            <div class="personal-message">
+                <p>You make every day special, and I'm so excited to spend Valentine's Day with you!</p>
+                <p>Now, I want <strong>you</strong> to plan our perfect Valentine's date! 💕</p>
+                <p style="margin-top: 10px; font-size: 1.3rem; color: #d63384;">I love you, mnm! 💘</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="heart-balloon" id="heartBalloon">❤️🎈</div>
+
+    <script>
+        // Get DOM elements
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const message = document.getElementById('message');
+        const heartBalloon = document.getElementById('heartBalloon');
+        const heartsContainer = document.getElementById('heartsContainer');
+        
+        // Make the "No" button move away when hovered or clicked
+        noBtn.addEventListener('mouseover', function() {
+            // Move button to random position
+            const maxX = window.innerWidth - this.offsetWidth - 20;
+            const maxY = window.innerHeight - this.offsetHeight - 20;
+            const x = Math.floor(Math.random() * maxX);
+            const y = Math.floor(Math.random() * maxY);
+            
+            this.style.position = 'fixed';
+            this.style.left = `${x}px`;
+            this.style.top = `${y}px`;
+            this.style.transition = 'all 0.4s ease';
+        });
+        
+        // Also move on click
+        noBtn.addEventListener('click', function() {
+            const maxX = window.innerWidth - this.offsetWidth - 20;
+            const maxY = window.innerHeight - this.offsetHeight - 20;
+            const x = Math.floor(Math.random() * maxX);
+            const y = Math.floor(Math.random() * maxY);
+            
+            this.style.position = 'fixed';
+            this.style.left = `${x}px`;
+            this.style.top = `${y}px`;
+        });
+        
+        // When "Yes" is clicked, show the message
+        yesBtn.addEventListener('click', function() {
+            message.style.display = 'block';
+            yesBtn.style.display = 'none';
+            noBtn.style.display = 'none';
+            
+            // Create falling hearts animation
+            createHearts();
+            
+            // Make heart balloon disappear
+            heartBalloon.style.display = 'none';
+            
+            // Change title to include mnm's name
+            document.title = "mnm said YES! 💘";
+            
+            // Add more floating hearts
+            addMoreHearts();
+        });
+        
+        // Make heart balloon move when clicked
+        heartBalloon.addEventListener('click', function() {
+            // Move balloon to random position
+            const maxX = window.innerWidth - this.offsetWidth;
+            const maxY = window.innerHeight - this.offsetHeight;
+            const x = Math.floor(Math.random() * maxX);
+            const y = Math.floor(Math.random() * maxY);
+            
+            this.style.left = `${x}px`;
+            this.style.top = `${y}px`;
+            this.style.transition = 'all 0.7s ease';
+            
+            // Change balloon color for fun
+            const colors = ['#ff4081', '#ff0066', '#ff79a9', '#ff1493', '#d63384'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            this.style.color = randomColor;
+            this.style.filter = `drop-shadow(0 0 15px ${randomColor})`;
+            
+            // Create a small heart at the clicked position
+            createHeartAtPosition(x + 30, y + 30);
+        });
+        
+        // Create falling hearts
+        function createHearts() {
+            // Clear any existing hearts
+            heartsContainer.innerHTML = '';
+            
+            // Create 40 falling hearts
+            for (let i = 0; i < 40; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.innerHTML = '❤️';
+                    
+                    // Random position and animation duration
+                    const left = Math.random() * 100;
+                    const duration = 3 + Math.random() * 5;
+                    const size = 0.5 + Math.random() * 1.5;
+                    const heartTypes = ['❤️', '💖', '💗', '💓', '💕', '💞', '💘'];
+                    const randomHeart = heartTypes[Math.floor(Math.random() * heartTypes.length)];
+                    
+                    heart.innerHTML = randomHeart;
+                    heart.style.left = `${left}vw`;
+                    heart.style.fontSize = `${size}rem`;
+                    heart.style.animationDuration = `${duration}s`;
+                    heart.style.animationDelay = `${Math.random() * 5}s`;
+                    
+                    heartsContainer.appendChild(heart);
+                    
+                    // Remove heart after animation completes
+                    setTimeout(() => {
+                        heart.remove();
+                    }, duration * 1000);
+                }, i * 150);
+            }
+            
+            // Keep creating hearts every 6 seconds
+            setInterval(() => {
+                createHeartAtRandom();
+            }, 6000);
+        }
+        
+        // Create a heart at random position
+        function createHeartAtRandom() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            
+            const heartTypes = ['❤️', '💖', '💗', '💓', '💕', '💞', '💘'];
+            const randomHeart = heartTypes[Math.floor(Math.random() * heartTypes.length)];
+            
+            heart.innerHTML = randomHeart;
+            
+            const left = Math.random() * 100;
+            const duration = 3 + Math.random() * 5;
+            const size = 0.5 + Math.random() * 1.5;
+            
+            heart.style.left = `${left}vw`;
+            heart.style.fontSize = `${size}rem`;
+            heart.style.animationDuration = `${duration}s`;
+            
+            heartsContainer.appendChild(heart);
+            
+            // Remove heart after animation completes
+            setTimeout(() => {
+                heart.remove();
+            }, duration * 1000);
+        }
+        
+        // Create a heart at specific position
+        function createHeartAtPosition(x, y) {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            
+            const heartTypes = ['❤️', '💖', '💗', '💓', '💕', '💞', '💘'];
+            const randomHeart = heartTypes[Math.floor(Math.random() * heartTypes.length)];
+            
+            heart.innerHTML = randomHeart;
+            heart.style.position = 'absolute';
+            heart.style.left = `${x}px`;
+            heart.style.top = `${y}px`;
+            heart.style.animation = 'none';
+            
+            heartsContainer.appendChild(heart);
+            
+            // Make heart float up and disappear
+            let opacity = 1;
+            let posY = y;
+            const floatInterval = setInterval(() => {
+                opacity -= 0.02;
+                posY -= 2;
+                heart.style.opacity = opacity;
+                heart.style.top = `${posY}px`;
+                
+                if (opacity <= 0) {
+                    clearInterval(floatInterval);
+                    heart.remove();
+                }
+            }, 30);
+        }
+        
+        // Add more floating hearts after yes is clicked
+        function addMoreHearts() {
+            const positions = [
+                {top: '5%', left: '5%'},
+                {top: '10%', right: '15%'},
+                {top: '25%', left: '20%'},
+                {bottom: '20%', right: '10%'},
+                {bottom: '10%', left: '25%'},
+                {top: '40%', right: '5%'}
+            ];
+            
+            positions.forEach(pos => {
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                
+                const heartTypes = ['❤️', '💖', '💗', '💓', '💕', '💞', '💘'];
+                const randomHeart = heartTypes[Math.floor(Math.random() * heartTypes.length)];
+                heart.innerHTML = randomHeart;
+                
+                for (const key in pos) {
+                    heart.style[key] = pos[key];
+                }
+                
+                document.body.appendChild(heart);
+            });
+        }
+        
+        // Initialize with some falling hearts
+        window.addEventListener('load', function() {
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    createHeartAtRandom();
+                }, i * 300);
+            }
+            
+            // Add mnm name in the console for fun
+            console.log("💝 This Valentine's Day website is specially made for mnm! 💝");
+        });
+    </script>
+</body>
+</html>
